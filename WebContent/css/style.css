@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* 你自己的样式 */
+.my-table {
+	width: 50%;
+	margin:auto;
+}
+.my-table td.name {
+	background-color: #f5fafe;
+	width: 80px;
+}
+
+.my-table td.value {
+	width: 80px;
+}
+.my-caption {
+	font-weight:bold;
+	font-size:18px;
+}
+
+.search {
+	float: right;
+}

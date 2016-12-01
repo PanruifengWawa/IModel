@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link href="css/H-ui.min.css" rel="stylesheet" type="text/css" />
+<link href="css/H-ui.admin.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="lib/zTree/v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<style>
+.inline {
+    display:inline-block;
+}
+</style>
+<title>数据上传</title>
+</head>
+<body ng-controller="predictController">
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i>  模型管理 <span class="c-gray en">&gt;</span> 创建模型 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+  <form class="form form-horizontal" >
+  
+  	<div class="row cl">
+  	<label class="form-label col-2"><span class="c-red"></span></label>
+      <div class="formControls col-3">
+        <input type="text" class="input-text" class="inline" placeholder="请输入App Key" ng-model="appKey"/>
+        
+      </div>
+      <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;确认&nbsp;&nbsp;" class="inline" ng-click="preparePredict()">
+    </div>
+    
+    <div class="row cl" ng-repeat="input in inputs">
+      <label class="form-label col-2"><span class="c-red">*</span>{{input}}：</label>
+      <div class="formControls col-3">
+        <input type="text" class="input-text" id="{{input}}">
+      </div>
+    </div>
+    
+    <div class="row cl" ng-if="inputs.length > 0">
+      <div class="col-9 col-offset-2">
+        <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;预测&nbsp;&nbsp;" ng-click="predict()">
+      </div>
+    </div>
+ 
+ 	<div class="row cl" ng-if="result != ''">
+      <label class="form-label col-2"><span class="c-red">*</span>{{target}}：</label>
+      <div class="formControls col-3">
+        <input type="text" class="input-text" value="{{result}}" disabled>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script> 
+<script type="text/javascript" src="js/H-ui.js"></script> 
+<script type="text/javascript" src="js/H-ui.admin.js"></script> 
+
+<script src="resource/js/lib/angular.min.js"></script>
+
+<script src="resource/js/app.js"></script>
+
+<script src="resource/js/APIRouters.js"></script>
+
+<script src="resource/js/service/modelService.js"></script>
+
+<script src="resource/js/controller/predictController.js"></script>
+
+</body>
+</html>

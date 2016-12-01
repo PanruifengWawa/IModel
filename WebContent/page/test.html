@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>血压数据上传</title>
+</head>
+<body>
+<body ng-app="myApp" ng-controller="testController">
+    <p><input type="file" file-model="dataFile" id="dataFile"/></p>
+    <input type="button" value="上传" ng-click="upload()"/>
+</body>
+
+
+<script src="../resource/js/lib/angular.min.js"></script>
+
+<script src="../resource/js/app.js"></script>
+
+<script type="text/javascript">
+
+myApp.controller("testController",function($scope,$http) {
+	
+	
+	$scope.upload = function() {
+		var formData = new FormData();
+	    //formData.append('datafile', data.dataFile);
+	    formData.append('dataFile', document.getElementById("dataFile").files[0]);
+
+		console.log( $scope.dataFile);
+		console.log($scope.dataFile);
+	        	$http({
+	        		　　method: 'POST',
+	        		　　url: 'http://localhost:8080/BPManagement/api/file/upload',
+	        		   headers: {
+	        		    'Content-Type': undefined
+	        		  },
+	        		  data: formData
+	        		  }).success(function(data) {
+	        		    //请求成功
+	        		    console.log(data);
+	        		  }).error(function(err, status) {
+	        		    console.log(err);
+	        		    
+	        		  });
+	        
+	}
+	
+
+});
+        
+       
+    </script>
+</body>
+</html>
