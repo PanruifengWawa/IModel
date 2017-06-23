@@ -74,7 +74,6 @@ public class Train extends Thread {
 			re.eval("data = read.csv(file,header=T)");
 			re.eval("size = nrow(data)");
 			re.eval("position = which(names(data)==target)");
-			
 			re.eval("credit_model <- C5.0(data[-position], data$" + target + ")");
 			re.eval("save(credit_model,file=resultfile)");
 			
